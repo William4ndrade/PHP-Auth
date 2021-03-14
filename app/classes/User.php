@@ -3,11 +3,11 @@
 namespace  app\classes;
 require_once(__DIR__ . "/User_db_model.php");
 
-use app\classes\model\DataBase;
+use app\classes\user\DataBaseUser;
 use Dotenv\Dotenv;
 use Firebase\JWT\JWT;
 
-class User extends DataBase {
+class User extends DataBaseUser {
 
 
     protected $Email;

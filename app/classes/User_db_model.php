@@ -1,12 +1,12 @@
 <?php
 
-namespace app\classes\model;
+namespace app\classes\user;
 require_once __DIR__ . "/../../vendor/autoload.php";
 use Dotenv\Dotenv;
 use Firebase\JWT\JWT;
 use PDO;
 
-class DataBase{
+class DataBaseUser{
 
         protected $PDO_connection;
 
