@@ -1,12 +1,11 @@
 <?php
 
-use GuzzleHttp\Client;
-session_start();
 require '../vendor/autoload.php';
 $client = new GuzzleHttp\Client();
 $res = $client->request('GET', 'https://dog.ceo/api/breeds/image/random', );
  $res->getBody();
  $picture = json_decode($res->getBody(), true)['message'];
+
 
  ?>
     <link rel="stylesheet" href="../styles/dashboard.css">

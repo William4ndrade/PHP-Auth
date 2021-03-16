@@ -1,7 +1,6 @@
 <?php
-
+session_start();
 use app\classes\User;
-
 require_once("../includes/basePage/pagenoauth.php");
 require_once("../includes/RedirectAuthUser.php");
 require_once("../app/classes/User.php");
@@ -19,7 +18,7 @@ if($_POST) {
                 $_SESSION['UserName'] = $ResponseLogin['userinfo']['name'];
                 $exp = time() + 60 * 60 * 24 * 30;
                 setcookie('Auth', $ResponseLogin['JWT'], $exp, "/");
-                header('location: Dashboard.php');
+                 header('location: Dashboard.php');
                 
 
             }else{

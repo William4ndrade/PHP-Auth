@@ -3,6 +3,8 @@
 namespace app\classes\posts;
 require_once __DIR__ . "/../../vendor/autoload.php";
 use Dotenv\Dotenv;
+use Error;
+use Exception;
 use PDO;
 
 
@@ -24,17 +26,43 @@ class DatabasePosts{
            
             $this->PDO_connection = new PDO("mysql:host={$server}:dbname={$db}", $user, $password);
             $this->PDO_connection->exec("use {$DB_SELECT}");
+        
           
             
         } catch (\Throwable $th) {
-            echo "deu ruim";
+            throw new Exception('db not connected', 666);
         }
         
     }
 
 
 
+    final protected function insertPost(string $text, int $iduser){
+        $sql = 'INSERT INTO Posts ( Text,  Postedby ) VALUES ( :TEXT , :IDUSER )';
+        $stmt = $this->PDO_connection->prepare($sql);
+        $stmt->bindParam(':TEXT', $text);
+        $stmt->bindParam(':IDUSER', $iduser);
+        if($stmt->execute()){
+            return [
+                'ok' => true,
+                'statusmensage' => 'New post created'
+            ];
+        }else{
+            return [
+                'ok' => false,
+                'statusmensage' => 'error at create new post',
+                'errorForDebug' => $stmt->errorInfo(),
+            ];
+        }
 
+
+
+
+
+
+
+
+    }
 
 
 

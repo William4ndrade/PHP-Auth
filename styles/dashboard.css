@@ -95,6 +95,11 @@ textarea#posttext{
 
 }
 
+textarea#posttext:invalid{
+    box-shadow: none;
+}
+
+
 button.btn-newpost{
     outline: none;
     background-color: slateblue;
@@ -104,4 +109,8 @@ button.btn-newpost{
     cursor: pointer;
     padding: 10px 0px;
     border-radius: 0px 0px 20px 20px;
+}
+
+div.count{
+    color: rgb(250, 250, 250);
 }
