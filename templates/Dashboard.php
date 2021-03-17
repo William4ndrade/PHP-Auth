@@ -64,7 +64,7 @@ require_once('../app/classes/Posts.php');
 
     <script>
         const count = document.querySelector('#count')
-        const inputext = document.querySelector('#posttext')
+        const inputext = document.querySelector('#posttext') 
         inputext.addEventListener('keyup', () => {
             count.innerHTML = ` <i class="fas fa-stopwatch"></i>  ${inputext.value.length}/230`
         }) 
