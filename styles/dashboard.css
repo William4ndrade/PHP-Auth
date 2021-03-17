@@ -114,3 +114,20 @@ button.btn-newpost{
 div.count{
     color: rgb(250, 250, 250);
 }
+
+
+.red{
+    background-color: rgb(167, 41, 41);
+}
+
+
+.green{
+    background-color:rgb(75, 189, 75);
+}
+
+
+div.statusnewpost{
+    width: 100%;
+    text-align: center;
+    color: white;
+}

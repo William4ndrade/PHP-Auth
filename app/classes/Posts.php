@@ -12,16 +12,45 @@ class Post extends DatabasePosts{
     public function __construct($text, $UserID)
     {
         parent::__construct();
+        $this->text = $text;
+        $this->UserID = $UserID;
     
     }
 
 
-    private function postDatavalidation(){
+    private function postDatavalidation():bool{
+        if(isset($this->text) && isset($this->UserID)){
+            $text = mb_strlen($this->text) <= 230 ? (trim($this->text) !== '' ? true : false) : false;
+            $userID = is_int($this->UserID); 
+            return $text && $userID;
+           
+        }else{
+            return false;
+        }
+
 
     }
 
 
     public function newpost(){
+        if($this->postDatavalidation()){
+            $text = trim(strip_tags($this->text));
+            $iduser = $this->UserID;
+            return  $this->insertPost($text, $iduser);
+            
+
+
+
+
+
+        }else{
+            return [
+                'ok' => false,
+                'statusmensage' => 'Dados incorretos, tente novamente'
+            ];
+        }
+
+
 
     }
 

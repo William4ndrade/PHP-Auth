@@ -7,11 +7,21 @@ require_once('../app/classes/Posts.php');
 
 
 
- $erros = [];
+ $status = [];
  
  if($_POST){
      if($_POST['posttext']){
-         $post = new Post('dassdad', 39);
+         $post = new Post($_POST['posttext'], $_SESSION['UserId']);
+         $response =  $post->newpost();
+         if($response['ok']){
+            $status[] =  '<div class="statusnewpost green ">' .  $response['statusmensage'] . '</div>';
+         }else{
+            $status[] =  '<div class="statusnewpost red ">' .  $response['statusmensage'] . '</div>';
+         }
+
+
+
+
      }
  }
 
@@ -37,15 +47,10 @@ require_once('../app/classes/Posts.php');
     <?php require_once('../includes/basePage/headerAuthenticaded.php'); ?>   
     <div class="formarea">
         <?php
-            if(count($erros) > 0){
-                echo "<div>";
-            foreach($erros as $elementos){
-                echo $elementos;
-            }
-
-            echo "</div>";
-
-            }
+           foreach($status as $elemento){
+               echo $elemento;
+           }
+            
         ?>
         <form method="post">
             <textarea   placeholder="Digite aqui" minlength="1" required maxlength="230" name="posttext"  id="posttext" cols="30" rows="10"></textarea>
@@ -61,10 +66,18 @@ require_once('../app/classes/Posts.php');
         const count = document.querySelector('#count')
         const inputext = document.querySelector('#posttext')
         inputext.addEventListener('keyup', () => {
-            console.log(inputext.value.length)
             count.innerHTML = ` <i class="fas fa-stopwatch"></i>  ${inputext.value.length}/230`
         }) 
-    
+       const teste =  document.querySelector("div.statusnewpost");
+        if(teste){
+            setTimeout(() => {
+                teste.remove()
+            },3000)
+        }else{
+            console.log("ok")
+        }
+
+
     </script>
 
 

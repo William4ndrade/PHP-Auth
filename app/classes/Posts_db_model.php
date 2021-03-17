@@ -45,12 +45,12 @@ class DatabasePosts{
         if($stmt->execute()){
             return [
                 'ok' => true,
-                'statusmensage' => 'New post created'
+                'statusmensage' => 'Conta criada com sucesso'
             ];
         }else{
             return [
                 'ok' => false,
-                'statusmensage' => 'error at create new post',
+                'statusmensage' => 'Erro ao criar a conta, tente novamente',
                 'errorForDebug' => $stmt->errorInfo(),
             ];
         }
