@@ -73,15 +73,25 @@ class DatabasePosts{
                 'statusmensage' => 'Ocorreu um erro, volte mais tarde'
             ];
         }
+    }
 
 
+    final public function FindpostsbyUserId($iduser){
+        $sql = 'SELECT Text, CreatedAt from Posts where PostedBy=:id ORDER BY idPosts DESC';
+        $stmt =  $this->PDO_connection->prepare($sql);
+        $stmt->bindParam(":id", $iduser);
+        if($stmt->execute()){
+            return[
+                'ok' => true,
+                'data' => $stmt->fetchAll(PDO::FETCH_ASSOC)
+            ];
 
-
-
-
-
-
-
+        }else{
+            return[
+                'ok' => false,
+                'statusmensage' => 'Erro ao pegar mensagens em seu id'
+            ];
+        }
     }
 
 

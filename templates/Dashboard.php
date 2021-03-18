@@ -55,9 +55,9 @@ require_once('../vendor/autoload.php');
         <?php
            foreach($status as $elemento){
                echo $elemento;
-           }
-            
+           } 
         ?>
+
         <form method="post">
             <textarea   placeholder="Digite aqui" minlength="1" required maxlength="230" name="posttext"  id="posttext" cols="30" rows="10"></textarea>
             <div class="count" id="count"> <i class="fas fa-stopwatch"></i> 0/230</div>

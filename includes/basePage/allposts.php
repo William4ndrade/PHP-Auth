@@ -35,8 +35,8 @@ $allposts = $posts->Getposts();
                 
 
             ?>
-        
-        
+
+            <p style="color:white;" >--__--</p>
         </div>
     
     

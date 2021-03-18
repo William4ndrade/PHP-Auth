@@ -19,7 +19,7 @@ $res = $client->request('GET', 'https://dog.ceo/api/breeds/image/random', );
         <nav>
             <ul>
                 <li><a href="/"> <i class="fas fa-home"></i> Home</a></li>
-                <li><a href=""> <i class="fas fa-comment-alt"></i> Meus posts</a></li>
+                <li><a href="../../templates/Myposts.php"> <i class="fas fa-comment-alt"></i> Meus posts</a></li>
                 <li><a href="../../templates/Loggout.php"> <i class="fas fa-door-open"></i> Sair</a></li>
             </ul>
         </nav>
