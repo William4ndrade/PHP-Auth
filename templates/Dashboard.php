@@ -1,9 +1,14 @@
 <?php
 
+
 use app\classes\posts\Post;
+
 
 require_once('../includes/RedirectNoAuthUser.php');
 require_once('../app/classes/Posts.php');
+require_once('../app/classes/Posts_db_model.php');
+require_once('../vendor/autoload.php');
+
 
 
 
@@ -15,6 +20,7 @@ require_once('../app/classes/Posts.php');
          $response =  $post->newpost();
          if($response['ok']){
             $status[] =  '<div class="statusnewpost green ">' .  $response['statusmensage'] . '</div>';
+            header('location: Dashboard.php');
          }else{
             $status[] =  '<div class="statusnewpost red ">' .  $response['statusmensage'] . '</div>';
          }
@@ -60,6 +66,12 @@ require_once('../app/classes/Posts.php');
         
         
     </div>
+
+    <?php require_once('../includes/basePage/allposts.php') ?>
+    
+    
+    
+    
 
 
     <script>

@@ -40,7 +40,7 @@ img.dogprofileimage{
 p.username{
     font-size: 25px;
     padding: 0px 10px;
-    color: rgb(128, 128, 128);
+    color: rgb(34, 34, 34);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 100;
 }
@@ -131,3 +131,6 @@ div.statusnewpost{
     text-align: center;
     color: white;
 }
+
+
+

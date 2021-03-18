@@ -12,10 +12,10 @@ class DatabasePosts{
 
     protected $PDO_connection;
 
-    protected function __construct()
+    public function __construct()
     {
       
-        $dotenv =  Dotenv::createImmutable("../");
+        $dotenv =  Dotenv::createImmutable(__DIR__ . "/../../");
         $dotenv->load();
         $server = $_ENV["SERVER_DB_IP"];
         $password = $_ENV["SERVER_DB_PASSWORD"];
@@ -56,6 +56,26 @@ class DatabasePosts{
         }
 
 
+    }
+
+    final public function Getposts(){
+        $sql = 'SELECT Posts.Text, Posts.CreatedAt, User.name FROM Posts inner join User ON Posts.Postedby=User.Id ORDER BY idPosts DESC';
+        $stmt =  $this->PDO_connection->prepare($sql);
+        if($stmt->execute()){
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return [
+                'ok' => true,
+                'data' => $data
+            ];
+        }else{
+            return [
+                'ok' => false,
+                'statusmensage' => 'Ocorreu um erro, volte mais tarde'
+            ];
+        }
+
+
+
 
 
 
@@ -64,6 +84,8 @@ class DatabasePosts{
 
     }
 
+
+    
 
 
 

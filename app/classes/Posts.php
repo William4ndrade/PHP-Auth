@@ -20,7 +20,7 @@ class Post extends DatabasePosts{
 
     private function postDatavalidation():bool{
         if(isset($this->text) && isset($this->UserID)){
-            $text = mb_strlen($this->text) <= 230 ? (trim($this->text) !== '' ? true : false) : false;
+            $text = strlen($this->text) <= 255 ? (trim($this->text) !== '' ? true : false) : false;
             $userID = is_int($this->UserID); 
             return $text && $userID;
            
@@ -37,11 +37,6 @@ class Post extends DatabasePosts{
             $text = trim(strip_tags($this->text));
             $iduser = $this->UserID;
             return  $this->insertPost($text, $iduser);
-            
-
-
-
-
 
         }else{
             return [
@@ -49,11 +44,10 @@ class Post extends DatabasePosts{
                 'statusmensage' => 'Dados incorretos, tente novamente'
             ];
         }
-
-
-
     }
 
+
+    
 
 
 

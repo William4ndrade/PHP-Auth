@@ -3,6 +3,7 @@
     "require": {
         "firebase/php-jwt": "^5.2",
         "vlucas/phpdotenv": "^5.3",
-        "guzzlehttp/guzzle": "^7.0"
+        "guzzlehttp/guzzle": "^7.0",
+        "nesbot/carbon": "^2.46"
     }
 }
