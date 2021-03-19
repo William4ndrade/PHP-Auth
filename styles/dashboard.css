@@ -56,11 +56,18 @@ li{
 a{
     color: black;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 a:hover{
-    color: rgb(83, 76, 177);
+    color: rgb(95, 95, 95);
     
+}
+
+i{
+    padding: 4px;
 }
 
 /* end header */
@@ -102,13 +109,19 @@ textarea#posttext:invalid{
 
 button.btn-newpost{
     outline: none;
-    background-color: slateblue;
+    background-color: rgb(22, 22, 22);
     color: white;
     border: none;
     width: 100%;
     cursor: pointer;
     padding: 10px 0px;
     border-radius: 0px 0px 20px 20px;
+}
+
+button.btn-newpost:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    
 }
 
 div.count{
@@ -133,4 +146,57 @@ div.statusnewpost{
 }
 
 
+@media (max-width: 767px){
 
+    div.userinfo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3px;
+       
+    }
+    
+    img.dogprofileimage{
+        height: 70px;
+        width: 70px;
+        border-radius: 100%;
+       
+    }
+    
+    p.username{
+        font-size: 17px;
+        padding: 0px 5px;
+        color: rgb(34, 34, 34);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 100;
+    }
+
+    p.word{
+        display: none;
+    }
+
+    ul{
+        display: flex;
+        list-style: none;
+    }
+    li{
+        padding: 0px 25px;
+        font-size: 25px;
+    }
+    
+    
+    a{
+        color: black;
+        text-decoration: none;
+    }
+    
+    a:hover{
+        color: rgb(95, 95, 95);
+        
+    }
+
+
+
+
+
+}

@@ -10,6 +10,7 @@ $allposts = $posts->Getposts();
 
 <link rel="stylesheet" href="../../styles/posts.css">
 
+
   <section class='sec-posts-area'>
         <div class="post-area" >
             <?php

@@ -24,8 +24,9 @@ $myposts = $db->FindpostsbyUserId($_SESSION['UserId']);
 </head>
 <body>
     <?= require_once("../includes/basePage/headerAuthenticaded.php") ?>
-
+    <
     <section class="sec-posts-area" >
+    <h1 style="color: wheat;">Seus Posts</h1>
         <?php  
             foreach($myposts['data'] as $atualpost){
                 echo '<div class="post-div" >';

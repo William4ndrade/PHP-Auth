@@ -53,7 +53,28 @@ a.linkauth{
 }
 
 
+@media (max-width: 767px){
 
+    a.linkauth{
+       margin: 0px 4px;
+       
+    
+    
+    }
+
+    nav.navauth{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    h1.h1brand{
+        font-size: 25px;
+    }
+
+
+
+
+}
 
 
 /* End header area */
